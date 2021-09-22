@@ -1,0 +1,24 @@
+{
+  "name": "react-non-interactive-iframe",
+  "version": "0.0.1",
+  "description": "An react component that renders an web page like an non-interactive static thumbnail image, providing resizing functionalities",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lucas2005gao/react-non-interactive-iframe.git"
+  },
+  "keywords": [
+    "react",
+    "iframe",
+    "thumbnail"
+  ],
+  "author": "lucas2005gao",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lucas2005gao/react-non-interactive-iframe/issues"
+  },
+  "homepage": "https://github.com/lucas2005gao/react-non-interactive-iframe#readme"
+}
