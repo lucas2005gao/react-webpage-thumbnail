@@ -1,5 +1,5 @@
 {
-  "name": "react-non-interactive-iframe",
+  "name": "@lucas2005gao/react-non-interactive-iframe",
   "version": "0.0.1",
   "description": "An react component that renders an web page like an non-interactive static thumbnail image, providing resizing functionalities",
   "main": "index.js",
@@ -16,6 +16,9 @@
     "iframe",
     "thumbnail"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
   "author": "lucas2005gao",
   "license": "MIT",
   "devDependencies": {
