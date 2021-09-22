@@ -1,8 +1,8 @@
 {
   "name": "@lucas2005gao/react-non-interactive-iframe",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "An react component that renders an web page like an non-interactive static thumbnail image, providing resizing functionalities",
-  "main": "index.js",
+  "main": "build/index.js",
   "scripts": {
     "start": "node src/index.js",
     "build": "webpack"
