@@ -34,7 +34,7 @@ function Thumbnail({
         tabIndex="-1"
         style={iframestyle}
         title="asdf"
-        src="http://localhost:3000/play/61483f36cfda1304e0d16b0e"
+        src="http://www.google.com/"
         sandbox="allow-scripts allow-same-origin"
         scrolling="no"
       />
