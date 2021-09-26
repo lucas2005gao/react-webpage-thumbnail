@@ -24,6 +24,33 @@ Using yarn:
 $ yarn add react-webpage-thumbnail
 ```
 
+## Usage
+
+```javascript
+import React from "react";
+import Thumbnail from "react-webpage-thumbnail";
+
+<Thumbnail url="https://nodejs.org/en/download/" />;
+```
+
+### Adjusting the size (iframe will scale to fit)
+
+```javascript
+<Thumbnail
+  url="https://nodejs.org/en/download/"
+  width={200}
+  height={200}
+  iframeHeight={1920}
+  iframeWidth={1080}
+/>
+```
+
+### Make the thumbnail (iframe) interactive
+
+```javascript
+<Thumbnail url="https://nodejs.org/en/download/" interactive />
+```
+
 ## Versioning
 
 For transparency into our release cycle and in striving to maintain backward compatibility, Skeletonic is maintained under the [Semantic Versioning](https://semver.org/) guidelines.
@@ -32,6 +59,7 @@ For transparency into our release cycle and in striving to maintain backward com
 
 - [ReactJS](https://reactjs.org/) - Expressive, robust, feature-rich CSS language built for nodejs
 - [react-loading-skeleton](https://www.npmjs.com/package/react-loading-skeleton) - Loading of the iframe
+- [iframe](https://www.w3schools.com/tags/tag_iframe.ASP) - HTML iframe
 
 ## License
 

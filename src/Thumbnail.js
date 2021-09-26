@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import Skeleton from "react-loading-skeleton";
 
 function Thumbnail({
-  url = "https://canvas.ac.nz/",
+  url = "https://nodejs.org/en/download/",
   height: heightProp,
   width: widthProp,
   interactive = false,

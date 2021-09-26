@@ -1,6 +1,6 @@
 {
   "name": "react-webpage-thumbnail",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "An react component that renders an web page like an non-interactive static thumbnail image, providing resizing functionalities",
   "main": "build/index.js",
   "scripts": {
@@ -19,12 +19,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/lucas2005gao/react-non-interactive-iframe.git"
+    "url": "git+https://github.com/lucas2005gao/react-webpage-thumbnail.git"
   },
   "keywords": [
     "react",
     "iframe",
-    "thumbnail"
+    "thumbnail",
+    "non-interactive",
+    "static",
+    "webpage"
   ],
   "publishConfig": {
     "access": "public"
@@ -51,7 +54,7 @@
     "react-loading-skeleton": "^2.2.0"
   },
   "bugs": {
-    "url": "https://github.com/lucas2005gao/react-non-interactive-iframe/issues"
+    "url": "https://github.com/lucas2005gao/react-webpage-thumbnail/issues"
   },
-  "homepage": "https://github.com/lucas2005gao/react-non-interactive-iframe#readme"
+  "homepage": "https://github.com/lucas2005gao/react-webpage-thumbnail#readme"
 }
