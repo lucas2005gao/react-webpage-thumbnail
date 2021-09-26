@@ -3,8 +3,8 @@ import Skeleton from "react-loading-skeleton";
 
 function Thumbnail({
   url = "https://canvas.ac.nz/",
-  height = 150,
-  width = 200,
+  height: heightProp,
+  width: widthProp,
   interactive = false,
   iframeWidth: iframeWidthProp,
   iframeHeight: iframeHeightProp,
@@ -12,14 +12,35 @@ function Thumbnail({
   onLoad,
 }) {
   const [loading, setLoading] = useState(true);
+  const [calculatedSize, setCalculatedSize] = useState({});
   const ref = useRef(null);
   useEffect(() => {
-    console.log("width", ref.current ? ref.current.offsetWidth : 0);
+    setCalculatedSize({
+      width: ref.current.offsetWidth,
+      height: ref.current.offsetHeight,
+    });
+    // console.log("width", ref.current ? ref.current.offsetWidth : 0);
+    // console.log("height", ref.current ? ref.current.offsetHeight : 0);
+    // console.log("----------------------------");
   }, [ref.current]);
+
+  let width;
+  if (!widthProp) {
+    width = "100%";
+  } else {
+    width = `${widthProp}px`;
+  }
+
+  let height;
+  if (!heightProp) {
+    height = "100%";
+  } else {
+    height = `${heightProp}px`;
+  }
 
   let aspectRatioHeight = 3;
   let aspectRatioWidth = 4;
-  if (width && height) {
+  if (widthProp && heightProp) {
     aspectRatioHeight = height;
     aspectRatioWidth = width;
   }
@@ -38,8 +59,22 @@ function Thumbnail({
     iframeWidth = iframeHeight * (aspectRatioWidth / aspectRatioHeight);
   }
 
-  const xscale = width / iframeWidth;
-  const yscale = height / iframeHeight;
+  const xscale = calculatedSize.width / iframeWidth;
+  const yscale = calculatedSize.height / iframeHeight;
+
+  const outerWrapper = {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    width,
+    height,
+  };
+
+  const iframeWrapper = {
+    width: calculatedSize.width,
+    maxHeight: calculatedSize.height,
+  };
+
   const iframe = {
     transform: `scaleX(${xscale}) scaleY(${yscale})`,
     transformOrigin: "0 0",
@@ -50,23 +85,9 @@ function Thumbnail({
 
   const iframeShade = {
     position: "absolute",
-    width: "100%",
-    height: `${height}px`,
-    maxWidth: `${width}px`,
+    width: calculatedSize.width,
+    height: calculatedSize.height,
     zIndex: "10",
-  };
-
-  const iframeWrapper = {
-    maxWidth: `${width}px`,
-    maxHeight: `${height}px`,
-  };
-
-  const outerWrapper = {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    width: "100%",
-    height: "100%",
   };
 
   const combinedOnLoad = () => {
@@ -82,26 +103,29 @@ function Thumbnail({
       style={{ ...outerWrapper, ...customStyle }}
       data-testid="div-outer-wrapper"
     >
-      <div style={iframeWrapper} data-testid="div-iframe-wrapper">
-        {!interactive && <div style={iframeShade}> </div>}
-        {loading && (
-          <Skeleton
-            style={{ position: "absolute", zIndex: "15" }}
-            width={width}
-            height={height}
-            duration={0.8}
+      {ref.current && (
+        <div style={iframeWrapper} data-testid="div-iframe-wrapper">
+          {!interactive && <div style={iframeShade}> </div>}
+          {loading && (
+            <Skeleton
+              style={{ position: "absolute", zIndex: "15" }}
+              width={calculatedSize.width}
+              height={calculatedSize.height}
+              duration={0.8}
+            />
+          )}
+
+          <iframe
+            tabIndex="-1"
+            style={iframe}
+            title="webpage-thumbnail"
+            src={url}
+            sandbox="allow-scripts allow-same-origin"
+            scrolling="no"
+            onLoad={combinedOnLoad}
           />
-        )}
-        <iframe
-          tabIndex="-1"
-          style={iframe}
-          title="webpage-thumbnail"
-          src={url}
-          sandbox="allow-scripts allow-same-origin"
-          scrolling="no"
-          onLoad={combinedOnLoad}
-        />
-      </div>
+        </div>
+      )}
     </div>
   );
 }
