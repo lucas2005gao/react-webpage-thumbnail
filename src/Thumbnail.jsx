@@ -1,7 +1,10 @@
 import React, { useState, useRef, useEffect } from "react";
 import Skeleton from "react-loading-skeleton";
+import PropTypes from "prop-types";
+// TODO
+// Throughly test giving width, default width etc
 
-function Thumbnail({
+export const Thumbnail = ({
   url = "https://nodejs.org/en/download/",
   height: heightProp,
   width: widthProp,
@@ -10,7 +13,8 @@ function Thumbnail({
   iframeHeight: iframeHeightProp,
   style: customStyle,
   onLoad,
-}) {
+  ...props
+}) => {
   const [loading, setLoading] = useState(true);
   const [calculatedSize, setCalculatedSize] = useState({});
   const ref = useRef(null);
@@ -22,7 +26,7 @@ function Thumbnail({
     // console.log("width", ref.current ? ref.current.offsetWidth : 0);
     // console.log("height", ref.current ? ref.current.offsetHeight : 0);
     // console.log("----------------------------");
-  }, [ref.current]);
+  }, [ref.current?.offsetWidth, ref.current?.offsetHeight]);
 
   let width;
   if (!widthProp) {
@@ -123,11 +127,51 @@ function Thumbnail({
             sandbox="allow-scripts allow-same-origin"
             scrolling="no"
             onLoad={combinedOnLoad}
+            {...props}
           />
         </div>
       )}
     </div>
   );
-}
-// TODO write proptypes
+};
 export default Thumbnail;
+
+Thumbnail.propTypes = {
+  /**
+   * The url of the webpage to render the thumbnail for
+   */
+  url: PropTypes.string,
+  /**
+   * The height of the entire component. iframe will be scaled down to this height. Defaults to be 100% of parent element
+   */
+  height: PropTypes.number,
+  /**
+   * The width of the entire component. iframe will be scaled down to this width. Defaults to be 100% of parent element
+   */
+  width: PropTypes.number,
+  /**
+   * Whether this iframe is to be static or interactive (clickable).
+   */
+  interactive: PropTypes.bool,
+  /**
+   * The width of the iframe viewport. Defaults to 1440px if both iframewidth and iframeheight is not provided
+   */
+  iframeWidth: PropTypes.number,
+  /**
+   * The height of the iframe viewport. Defaults to 1080px if both iframewidth and iframeheight is not provided
+   */
+  iframeHeight: PropTypes.number,
+  /**
+   * customized styling to be passed to the wrapper (div) of the component consisting the iframe
+   */
+  style: PropTypes.object,
+  /**
+   * customized function which will be called when iframed webpage finishes loading
+   */
+  onLoad: PropTypes.func,
+};
+
+Thumbnail.defaultProps = {
+  url: "https://nodejs.org/en/download/",
+  interactive: false,
+};
