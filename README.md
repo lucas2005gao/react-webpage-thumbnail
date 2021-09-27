@@ -1,6 +1,6 @@
 # Introducing [react-webpage-thumbnail](https://www.npmjs.com/package/react-webpage-thumbnail)
 
-**[react-webpage-thumbnail](https://github.com/lucas2005gao/react-webpage-thumbnail)** - React-webpage-thumbnail renders a react component of an static thumbnail image of an webpage. It can be used out of the box by simply adding the url of the webpage. Resizing functionalities also provided.
+**[react-webpage-thumbnail](https://github.com/lucas2005gao/react-webpage-thumbnail)** - React-webpage-thumbnail renders a react component of an static thumbnail image of an webpage - simply pass in the webpage url in the url prop. Resizing functionalities and loading animation are also provided out of the box.
 
 [![NPM](https://nodei.co/npm/react-webpage-thumbnail.png)](https://nodei.co/npm/react-webpage-thumbnail/)
 
@@ -8,7 +8,7 @@
 [![Tests](https://github.com/lucas2005gao/react-webpage-thumbnail/actions/workflows/unit_tests.yml/badge.svg)](https://github.com/lucas2005gao/react-webpage-thumbnail/actions/workflows/unit_tests.yml)
 [![Packagist](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/lucas2005gao/react-webpage-thumbnail/blob/master/LICENSE)
 ![GitHub issues](https://img.shields.io/github/issues/lucas2005gao/react-webpage-thumbnail)
-[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Flucas2005gao%2Freact-webpage-thumbnail.svg?type=small)](https://app.fossa.com/projects/git%2Bgithub.com%2Flucas2005gao%2Freact-webpage-thumbnail?ref=badge_small)
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Flucas2005gao%2Freact-webpage-thumbnail.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Flucas2005gao%2Freact-webpage-thumbnail?ref=badge_shield)
 
 ## Installing
 
@@ -53,7 +53,7 @@ import Thumbnail from "react-webpage-thumbnail";
 
 ## Versioning
 
-For transparency into our release cycle and in striving to maintain backward compatibility, Skeletonic is maintained under the [Semantic Versioning](https://semver.org/) guidelines.
+For transparency into our release cycle and in striving to maintain backward compatibility, react-webpage-thumbnail is maintained under the [Semantic Versioning](https://semver.org/) guidelines.
 
 ## Built With
 
@@ -66,6 +66,22 @@ For transparency into our release cycle and in striving to maintain backward com
 This project is licensed under the MIT License - see the [LICENSE](https://github.com/lucas2005gao/react-webpage-thumbnail/blob/master/LICENSE) file for details
 
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Flucas2005gao%2Freact-webpage-thumbnail.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Flucas2005gao%2Freact-webpage-thumbnail?ref=badge_large)
+
+## Backstory - Why webpage-thumbnails
+
+While working on a project for creating a GoogleSlides-like slideshow authoring tool with ReactJs, a thumbnail of the slide canvas was needed for users to preview.
+
+There are two approachs to this from my research:
+
+- **Image based** : render the canvas and generate a thumbnail image of the canvas. Update the image when the slide canvas is updated.
+- **iframe based** : load the canvas in an iframe and make it non-iteractive, which is like an image thumbnail preview of the canvas.
+
+Pros and Cons :
+
+- **Image based** : better performance on client, but updating logic can be quite abit of workload
+- **iframe based** : very bad performance, as the client will need to render many iframes. But this is very easy to implement.
+
+Google Docs, Slides and Sheets uses the **Image based** solution. However, in our scenario, it was a MVP/Demo application so performance was not scoped. Therefore, it lead to the creation of this npm library, with the **iframe based** solution.
 
 ## Contributors ✨
 
