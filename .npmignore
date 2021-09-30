@@ -1,5 +1,6 @@
 /src
 /testSetup
 /.github
+/stories
 .babelrc
 webpack.config.js
