@@ -1,6 +1,6 @@
 {
   "name": "react-webpage-thumbnail",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "An react component that renders an web page like an non-interactive static thumbnail image, providing resizing functionalities",
   "main": "build/index.js",
   "scripts": {
@@ -9,7 +9,8 @@
     "test": "jest",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "chromatic": "npx chromatic --project-token=8e9bd7630a2b"
+    "chromatic": "chromatic --exit-zero-on-changes",
+    "storybook-deploy": "npx chromatic --project-token=8e9bd7630a2b"
   },
   "jest": {
     "roots": [

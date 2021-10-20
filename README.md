@@ -10,6 +10,12 @@
 ![GitHub issues](https://img.shields.io/github/issues/lucas2005gao/react-webpage-thumbnail)
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Flucas2005gao%2Freact-webpage-thumbnail.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Flucas2005gao%2Freact-webpage-thumbnail?ref=badge_shield)
 
+## Live Demo
+
+Checkout the [live demo](https://6155a28d6f5cc1003a3c4913-tmssmfkgpr.chromatic.com/) with `customization configurations`
+
+Checkout the [Storybook page](https://6155a28d6f5cc1003a3c4913-tmssmfkgpr.chromatic.com/) with example usages
+
 ## Installing
 
 Using npm:

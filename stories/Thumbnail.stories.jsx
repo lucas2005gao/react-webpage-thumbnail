@@ -8,8 +8,11 @@ export default {
 };
 
 const Template = (args) => <Thumbnail {...args} />;
-
-// export const defaultThumbnail = Template.bind({});
+const TemplateWithWrapper = (args) => (
+  <div style={{ width: 500, height: 400, background: "lightblue" }}>
+    <Thumbnail {...args} />
+  </div>
+);
 
 export const sizeDefinedThumbnail = Template.bind({});
 sizeDefinedThumbnail.args = {
@@ -24,24 +27,8 @@ iframeNotAllowedThumbnail.args = {
   height: 300,
 };
 
-// export const fitThumbnailInContainer = () => {
-//   return (
-//     <div style={{ width: 500, height: 400, background: "blue" }}>
-//       {Template.bind({})()}
-//     </div>
-//   );
-// };
+export const fitThumbnailInContainer = TemplateWithWrapper.bind({});
+fitThumbnailInContainer.args = {};
 
-// export const fitSmallerThumbnailInContainer = () => {
-//   const thumbnail = Template.bind({});
-//   thumbnail.args = {
-//     url: "https://www.google.com/",
-//     width: 400,
-//     height: 300,
-//   };
-//   return (
-//     <div style={{ width: 500, height: 400, background: "blue" }}>
-//       {thumbnail()}
-//     </div>
-//   );
-// };
+export const fitSmallerThumbnailInContainer = TemplateWithWrapper.bind({});
+fitSmallerThumbnailInContainer.args = { width: 400, height: 300 };
