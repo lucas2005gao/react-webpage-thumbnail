@@ -12,6 +12,8 @@ on:
 
 jobs:
   chromatic-deployment:
+    name: Run unit tests
+    runs-on: ubuntu-latest
     steps:
       # 👇 Version 2 of the action
       - name: Checkout repository
