@@ -12,9 +12,7 @@
 
 ## Live Demo
 
-Checkout the [live demo](https://6155a28d6f5cc1003a3c4913-tmssmfkgpr.chromatic.com/) with `customization configurations`
-
-Checkout the [Storybook page](https://6155a28d6f5cc1003a3c4913-tmssmfkgpr.chromatic.com/) with example usages
+Checkout the [Storybook page](https://master--6155a28d6f5cc1003a3c4913.chromatic.com) with example usages
 
 ## Installing
 
