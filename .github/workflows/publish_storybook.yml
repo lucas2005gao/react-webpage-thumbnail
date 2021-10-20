@@ -11,32 +11,19 @@ on:
       - "docs/**"
 
 jobs:
-  publish-storybook:
-    name: Deploy storybook on Chromatic
-    runs-on: ubuntu-latest
-
+  chromatic-deployment:
     steps:
-      - name: Check out Git repository
+      # 👇 Version 2 of the action
+      - name: Checkout repository
         uses: actions/checkout@v2
-
-      - uses: actions/cache@v2
         with:
-          path: ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v1
-        with:
-          node-version: 12
-
-      # Installs dev dependencies
-      - name: Install dev dependencies
-        run: yarn install
-
-      - name: Run chromatic
-        run: yarn run chromatic
+          fetch-depth: 0 # 👈 Required to retrieve git history
+      - name: Install dependencies
+        run: npm install
+        # 👇 Adds Chromatic as a step in the workflow
+      - name: Publish to Chromatic
+        uses: chromaui/action@v1
+        # Options required to the GitHub Chromatic Action
         with:
           # 👇 Chromatic projectToken, refer to the manage page to obtain it.
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
