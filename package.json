@@ -1,7 +1,7 @@
 {
   "name": "react-webpage-thumbnail",
-  "version": "0.0.6",
-  "description": "An react component that renders an web page like an non-interactive static thumbnail image, providing resizing functionalities",
+  "version": "1.0.0",
+  "description": "A light-weight react component that renders a static non-interactive thumbnail iframe for a web page",
   "main": "build/index.js",
   "scripts": {
     "start": "node src/index.js",
