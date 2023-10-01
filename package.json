@@ -7,8 +7,8 @@
     "start": "node src/index.js",
     "build": "webpack",
     "test": "jest",
-    "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build",
     "chromatic": "chromatic --exit-zero-on-changes",
     "storybook-deploy": "npx chromatic --project-token=8e9bd7630a2b"
   },
@@ -42,12 +42,13 @@
     "@babel/core": "^7.7.5",
     "@babel/preset-env": "^7.7.6",
     "@babel/preset-react": "^7.7.4",
-    "@storybook/addon-actions": "^6.3.8",
-    "@storybook/addon-essentials": "^6.3.8",
-    "@storybook/addon-links": "^6.3.8",
-    "@storybook/react": "^6.3.8",
+    "@storybook/addon-actions": "^7.4.5",
+    "@storybook/addon-essentials": "^7.4.5",
+    "@storybook/addon-links": "^7.4.5",
+    "@storybook/react": "^7.4.5",
+    "@storybook/react-webpack5": "^7.4.5",
     "babel-loader": "^8.0.6",
-    "chromatic": "^5.10.1",
+    "chromatic": "^7.2.0",
     "css-loader": "^3.3.0",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.6",
@@ -55,9 +56,10 @@
     "prop-types": "^15.7.2",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
+    "storybook": "^7.4.5",
     "style-loader": "^1.0.1",
-    "webpack": "^4.41.2",
-    "webpack-cli": "^3.3.10"
+    "webpack": "^5.88.2",
+    "webpack-cli": "^5.1.4"
   },
   "dependencies": {
     "react-loading-skeleton": "^2.2.0"
