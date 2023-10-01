@@ -62,7 +62,6 @@ For transparency into our release cycle and in striving to maintain backward com
 ## Built With
 
 - [ReactJS](https://reactjs.org/) - Expressive, robust, feature-rich CSS language built for nodejs
-- [react-loading-skeleton](https://www.npmjs.com/package/react-loading-skeleton) - Loading of the iframe
 - [iframe](https://www.w3schools.com/tags/tag_iframe.ASP) - HTML iframe
 
 ## License
