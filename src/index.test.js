@@ -1,35 +1,34 @@
-// import React so you can use JSX (React.createElement) in your test
-import React from "react";
-
-/**
- * render: lets us render the component as React would
- * screen: a utility for finding elements the same way the user does
- */
+import Thumbnail from "./index";
 import { render, screen } from "@testing-library/react";
 
-import Thumbnail from "./index";
+import React from "react";
 
 it("should render an iframe in the Thumbnail", () => {
-  const thumbnail = mount(<Thumbnail />);
-  const thumbnailElements = thumbnail.find("iframe");
+  render(<Thumbnail />);
+  const thumbnailElements = screen.getAllByRole("iframe");
 
   expect(thumbnailElements.length).toBe(1);
 });
 
 it("should render a Thumbnail with styles", () => {
-  const style = { boarderRadius: 10, height: 50, width: 50 };
-  const thumbnail = mount(<Thumbnail style={style} />);
-  expect(
-    thumbnail.find({ "data-testid": "div-outer-wrapper" }).prop("style")
-  ).toEqual(expect.objectContaining(style));
+  render(
+    <Thumbnail
+      style={{ boarderRadius: "10px", height: "50px", width: "50px" }}
+    />
+  );
+  const thumbnail = screen.getByTestId("div-outer-wrapper");
+  expect(thumbnail.style.boarderRadius).toEqual("10px");
+  expect(thumbnail.style.height).toEqual("50px");
+  expect(thumbnail.style.width).toEqual("50px");
 });
 
 it("inline style prop should overwrite custom styles", () => {
   const style = { boarderRadius: 10, height: 50, width: 50 };
-  const thumbnail = mount(<Thumbnail height={100} style={style} />);
-  expect(
-    thumbnail.find({ "data-testid": "div-outer-wrapper" }).prop("style")
-  ).toEqual(expect.objectContaining(style));
+  render(<Thumbnail height={100} style={style} />);
+  const thumbnail = screen.getByTestId("div-outer-wrapper");
+  expect(thumbnail.style.boarderRadius).toEqual("10px");
+  expect(thumbnail.style.height).toEqual("50px");
+  expect(thumbnail.style.width).toEqual("50px");
 });
 
 // it("should render custom className if provided", () => {

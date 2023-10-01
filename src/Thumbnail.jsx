@@ -134,6 +134,7 @@ export const Thumbnail = ({
 
           <iframe
             tabIndex="-1"
+            role="iframe"
             style={iframe}
             title="webpage-thumbnail"
             src={url}

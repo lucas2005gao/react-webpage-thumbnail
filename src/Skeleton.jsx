@@ -1,3 +1,4 @@
+import React from "react";
 import "./skeleton.css";
 
 const Skeleton = ({ style }) => {
