@@ -61,9 +61,6 @@
     "webpack": "^5.88.2",
     "webpack-cli": "^5.1.4"
   },
-  "dependencies": {
-    "react-loading-skeleton": "^2.2.0"
-  },
   "bugs": {
     "url": "https://github.com/lucas2005gao/react-webpage-thumbnail/issues"
   },

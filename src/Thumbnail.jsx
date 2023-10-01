@@ -1,8 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
-import Skeleton from "react-loading-skeleton";
 import PropTypes from "prop-types";
-// TODO
-// Throughly test giving width, default width etc
+import Skeleton from "./Skeleton";
 
 export const Thumbnail = ({
   url = "https://nodejs.org/en/download/",
@@ -100,7 +98,7 @@ export const Thumbnail = ({
     }
     setLoading(false);
   };
-
+  console.log("loading", loading);
   return (
     <div
       ref={ref}
@@ -111,12 +109,28 @@ export const Thumbnail = ({
         <div style={iframeWrapper} data-testid="div-iframe-wrapper">
           {!interactive && <div style={iframeShade}> </div>}
           {loading && (
-            <Skeleton
-              style={{ position: "absolute", zIndex: "15" }}
-              width={calculatedSize.width}
-              height={calculatedSize.height}
-              duration={0.8}
-            />
+            <div
+              className="skeleton-wrapper"
+              style={{
+                width: calculatedSize.width,
+                height: calculatedSize.height,
+                position: "absolute",
+                zIndex: "15",
+              }}
+            >
+              <Skeleton
+                style={{
+                  width: calculatedSize.width,
+                  height: calculatedSize.height,
+                }}
+                type="thumbnail"
+                width={calculatedSize.width}
+                height={calculatedSize.height}
+              />
+              <div className="shimmer-wrapper">
+                <div className="shimmer"></div>
+              </div>
+            </div>
           )}
 
           <iframe
