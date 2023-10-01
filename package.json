@@ -22,7 +22,8 @@
     "thumbnail",
     "non-interactive",
     "static",
-    "webpage"
+    "webpage",
+    "webpage-thumbnail"
   ],
   "publishConfig": {
     "access": "public"
