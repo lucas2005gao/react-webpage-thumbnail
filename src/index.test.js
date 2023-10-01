@@ -1,5 +1,12 @@
+// import React so you can use JSX (React.createElement) in your test
 import React from "react";
-import { mount } from "enzyme";
+
+/**
+ * render: lets us render the component as React would
+ * screen: a utility for finding elements the same way the user does
+ */
+import { render, screen } from "@testing-library/react";
+
 import Thumbnail from "./index";
 
 it("should render an iframe in the Thumbnail", () => {

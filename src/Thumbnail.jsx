@@ -98,7 +98,6 @@ export const Thumbnail = ({
     }
     setLoading(false);
   };
-  console.log("loading", loading);
   return (
     <div
       ref={ref}
